@@ -1,26 +1,77 @@
-﻿<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Berkeley • Cloud Engineer</title>
-<meta name="description" content="Berkeley — Cloud Engineer. Azure, IaC, automation, security, networking.">
+﻿<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Berkeley — Cloud Engineer</title>
+<meta name="description" content="Cloud Engineer in London. Secure, automated, highly-available Azure platforms. PowerShell • Azure DevOps • Intune • Networking.">
 <meta property="og:title" content="Berkeley — Cloud Engineer">
-<meta property="og:description" content="Azure | IaC | Automation | Security | Networking">
+<meta property="og:description" content="Azure • Automation • Networking • Security • Reliability">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://berkeleyo.github.io/">
 <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css">
-<h1>Berkeley — Cloud Engineer</h1>
-<p>I build reliable Azure platforms with automation, observability, and secure enterprise integration.</p>
-<h2>Featured Projects</h2>
-<ul>
-<li><a href="https://github.com/berkeleyo/azure-governance-policy-bicep">Azure Governance (Policy-as-Code)</a></li>
-<li><a href="https://github.com/berkeleyo/azure-devops-pipeline-templates">Azure DevOps Pipeline Templates</a></li>
-<li><a href="https://github.com/berkeleyo/powershell-az-modules">PowerShell for Azure Ops</a></li>
-<li><a href="https://github.com/berkeleyo/sentinel-automation-playbooks">Security Automation</a></li>
-<li><a href="https://github.com/berkeleyo/azure-cost-ops-automation">Cost Ops</a></li>
-<li><a href="https://github.com/berkeleyo/fortinet-azure-sdwan-ipsec">Fortinet SD-WAN/IPsec → Azure</a></li>
-</ul>
-<p>I build reliable Azure platforms with automation, observability, and secure enterprise integration.</p>
 <style>
-  body{max-width:960px;margin:auto}
-  h1{margin-top:1.2rem}
-  a{font-weight:600}
-  .muted{opacity:.7}
+  :root { --card-bg:#fff; --muted:#6b7280; }
+  @media (prefers-color-scheme: dark) {
+    :root { --card-bg:#111827; --muted:#9ca3af; }
+    body { background:#0b0f14; color:#e5e7eb; }
+    a { color:#a5b4fc; }
+  }
+  body { max-width: 1080px; margin:auto; padding:20px; }
+  .sub { color:var(--muted); margin-top:-6px; }
+  .grid { display:grid; gap:14px; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); }
+  .card { background:var(--card-bg); border-radius:14px; padding:16px; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+  .k { font-size:.9rem; margin:.25rem 0 0; color:var(--muted); }
+  footer { margin-top:24px; opacity:.8; }
 </style>
+<h1>Berkeley — Cloud Engineer</h1>
+<p class="sub">Azure • Automation • Networking • Security • Reliability — London</p>
+
+<h2>Featured Projects</h2>
+<div class="grid">
+  <div class="card">
+    <h3><a href="https://github.com/berkeleyo/azure-governance-policy-bicep">Azure Governance (Policy-as-Code)</a></h3>
+    <p>Guardrails for Azure: deny public IPs, audit RG tags, pipeline validation.</p>
+    <p class="k">Azure Policy, CI</p>
+  </div>
+  <div class="card">
+    <h3><a href="https://github.com/berkeleyo/azure-devops-pipeline-templates">Azure DevOps Pipeline Templates</a></h3>
+    <p>Reusable YAML for PowerShell testing and deployment automation.</p>
+    <p class="k">Azure DevOps, CI/CD</p>
+  </div>
+  <div class="card">
+    <h3><a href="https://github.com/berkeleyo/powershell-az-modules">PowerShell for Azure Ops</a></h3>
+    <p>Operational modules for tagging, budgets, and testable automation patterns.</p>
+    <p class="k">PowerShell, Pester</p>
+  </div>
+  <div class="card">
+    <h3><a href="https://github.com/berkeleyo/sentinel-automation-playbooks">Security Automation</a></h3>
+    <p>Logic Apps + Sentinel workflows for incident notifications and triage.</p>
+    <p class="k">Sentinel, Logic Apps</p>
+  </div>
+  <div class="card">
+    <h3><a href="https://github.com/berkeleyo/azure-cost-ops-automation">Cost Ops Automation</a></h3>
+    <p>Budgets, alerting, and VM lifecycle helpers for cost control.</p>
+    <p class="k">Monitor, Automation</p>
+  </div>
+  <div class="card">
+    <h3><a href="https://github.com/berkeleyo/fortinet-azure-sdwan-ipsec">Fortinet SD-WAN/IPsec → Azure</a></h3>
+    <p>Reference configs and notes for secure hub-and-spoke connectivity.</p>
+    <p class="k">FortiGate, IPsec, Networking</p>
+  </div>
+</div>
+
+<h2>More</h2>
+<ul>
+  <li><a href="https://github.com/berkeleyo/intune-win32-packages">Intune Win32 Packaging</a></li>
+  <li><a href="https://github.com/berkeleyo/unifi-azure-migration-runbook">UniFi Controller Migration (Azure)</a></li>
+  <li><a href="https://github.com/berkeleyo/azure-monitor-teams-notifications">Azure Monitor → Teams</a></li>
+  <li><a href="https://github.com/berkeleyo/grafana-backup-monitoring">Grafana Backup Health</a></li>
+  <li><a href="https://github.com/berkeleyo/teams-risky-users-card">Teams Risky Users Card</a></li>
+  <li><a href="https://github.com/berkeleyo/azure-public-ip-migration">Public IP Migration</a></li>
+  <li><a href="https://github.com/berkeleyo/azure-vpn-dns-guidance">Azure VPN DNS Guidance</a></li>
+</ul>
+
+<footer>
+  <p>Portfolio • <a href="https://github.com/berkeleyo">github.com/berkeleyo</a> • <a href="https://www.linkedin.com/in/berkeleyo">linkedin.com/in/berkeleyo</a></p>
+</footer>
+</html>

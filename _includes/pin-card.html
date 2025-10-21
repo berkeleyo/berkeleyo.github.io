@@ -1,30 +1,59 @@
+﻿{%- comment -%}
+  pin-card.html (hardened)
+  Usage: {% include pin-card.html item=pin repo=repo %}
+  Fallback: if 'repo' is nil, compute full name from site owner + item.name.
+{%- endcomment -%}
+
+{%- assign owner = site.github.owner_name | default: site.github.repository_nwo | split:'/' | first -%}
+{%- if repo and repo.full_name -%}
+  {%- assign repo_full = repo.full_name -%}
+{%- else -%}
+  {%- assign repo_full = owner | append:'/' | append:item.name -%}
+{%- endif -%}
 
 <div class="card">
   <div class="media">
-    {% if item.image %}
+    {%- if item.image and item.image != '' -%}
       <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
-    {% else %}
-      <img src="{{ '/assets/thumbs/default.png' | relative_url }}" alt="thumbnail">
-    {% endif %}
+    {%- else -%}
+      <img alt="thumbnail" src="data:image/svg+xml;utf8,
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 675'>
+          <defs>
+            <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+              <stop stop-color='%230d1117' offset='0'/>
+              <stop stop-color='%231a2433' offset='1'/>
+            </linearGradient>
+          </defs>
+          <rect fill='url(%23g)' width='1200' height='675'/>
+          <text x='50%' y='52%' fill='%23a0aec0' font-size='44' font-family='Segoe UI, Roboto, Arial' text-anchor='middle'>
+            {{ item.title | xml_escape }}
+          </text>
+        </svg>">
+    {%- endif -%}
   </div>
   <div class="body">
     <h3 style="margin:0 0 6px 0; display:flex; align-items:center; gap:10px;">
       <span>{{ item.title }}</span>
-      {% if repo.language %}<span class="tag">{{ repo.language }}</span>{% endif %}
+      {%- if repo and repo.language -%}<span class="tag">{{ repo.language }}</span>{%- endif -%}
     </h3>
     <p style="margin:0 0 6px 0;">{{ item.blurb }}</p>
+
     <div class="badges">
-      <img alt="last commit" src="https://img.shields.io/github/last-commit/{{ repo.full_name }}?style=flat" />
-      <img alt="issues" src="https://img.shields.io/github/issues/{{ repo.full_name }}?style=flat" />
-      <img alt="license" src="https://img.shields.io/github/license/{{ repo.full_name }}?style=flat" />
+      <img alt="last commit" src="https://img.shields.io/github/last-commit/{{ repo_full }}?style=flat" />
+      <img alt="issues" src="https://img.shields.io/github/issues/{{ repo_full }}?style=flat" />
+      <img alt="license" src="https://img.shields.io/github/license/{{ repo_full }}?style=flat" />
     </div>
-    {% if item.tags %}
-      <div class="tags">{% for t in item.tags %}<span class="tag">{{ t }}</span>{% endfor %}</div>
-    {% endif %}
+
+    {%- if item.tags -%}
+      <div class="tags">
+        {%- for t in item.tags -%}<span class="tag">{{ t }}</span>{%- endfor -%}
+      </div>
+    {%- endif -%}
+
     <div class="btn-row">
-      <a class="btn btn--primary" href="{{ repo.html_url }}" target="_blank" rel="noopener">GitHub</a>
-      {% if item.demo %}<a class="btn" href="{{ item.demo }}" target="_blank" rel="noopener">Demo</a>{% endif %}
-      {% if item.docs %}<a class="btn" href="{{ item.docs | relative_url }}">Docs</a>{% endif %}
+      <a class="btn btn--primary" href="https://github.com/{{ repo_full }}" target="_blank" rel="noopener">GitHub</a>
+      {%- if item.demo -%}<a class="btn" href="{{ item.demo }}" target="_blank" rel="noopener">Demo</a>{%- endif -%}
+      {%- if item.docs -%}<a class="btn" href="{{ item.docs | relative_url }}">Docs</a>{%- endif -%}
     </div>
   </div>
 </div>

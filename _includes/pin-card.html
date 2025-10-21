@@ -1,0 +1,30 @@
+
+<div class="card">
+  <div class="media">
+    {% if item.image %}
+      <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
+    {% else %}
+      <img src="{{ '/assets/thumbs/default.png' | relative_url }}" alt="thumbnail">
+    {% endif %}
+  </div>
+  <div class="body">
+    <h3 style="margin:0 0 6px 0; display:flex; align-items:center; gap:10px;">
+      <span>{{ item.title }}</span>
+      {% if repo.language %}<span class="tag">{{ repo.language }}</span>{% endif %}
+    </h3>
+    <p style="margin:0 0 6px 0;">{{ item.blurb }}</p>
+    <div class="badges">
+      <img alt="last commit" src="https://img.shields.io/github/last-commit/{{ repo.full_name }}?style=flat" />
+      <img alt="issues" src="https://img.shields.io/github/issues/{{ repo.full_name }}?style=flat" />
+      <img alt="license" src="https://img.shields.io/github/license/{{ repo.full_name }}?style=flat" />
+    </div>
+    {% if item.tags %}
+      <div class="tags">{% for t in item.tags %}<span class="tag">{{ t }}</span>{% endfor %}</div>
+    {% endif %}
+    <div class="btn-row">
+      <a class="btn btn--primary" href="{{ repo.html_url }}" target="_blank" rel="noopener">GitHub</a>
+      {% if item.demo %}<a class="btn" href="{{ item.demo }}" target="_blank" rel="noopener">Demo</a>{% endif %}
+      {% if item.docs %}<a class="btn" href="{{ item.docs | relative_url }}">Docs</a>{% endif %}
+    </div>
+  </div>
+</div>

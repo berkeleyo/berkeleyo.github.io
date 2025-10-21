@@ -1,0 +1,18 @@
+- name: gcp-external-security-pipelines
+  title: "GCP → External Security Pipelines"
+  blurb: "Secure telemetry egress (agents & Pub/Sub), egress controls, and ops runbooks."
+  tags: [GCP, Security, SIEM, Pub/Sub]
+  image: /assets/thumbs/gcp-external.png
+  docs: /projects/gcp-external-security/
+- name: s1-gcp-integration
+  title: "SentinelOne ↔ GCP Integration"
+  blurb: "Endpoint agent rollout, secure egress allowlists, optional log bridge."
+  tags: [EDR, GCP, Security]
+  image: /assets/thumbs/s1-gcp.png
+  docs: /projects/s1-gcp/
+- name: teams-voip-integration
+  title: "VoIP ↔ Teams Phone (Insurance Broker)"
+  blurb: "Direct Routing/Operator Connect, AA/CQ automation, Emergency Calling."
+  tags: [Teams, SBC, VoIP, E911]
+  image: /assets/thumbs/teams-voip.png
+  docs: /projects/teams-voip/

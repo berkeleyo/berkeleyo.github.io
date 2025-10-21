@@ -1,0 +1,15 @@
+
+<div class="card" style="margin: 0 0 1rem 0;">
+  <div class="body">
+    <h3 style="margin:0;"><a href="{{ include.repo.html_url }}" target="_blank" rel="noopener">{{ include.repo.full_name }}</a></h3>
+    <p style="margin:.5rem 0 0 0;">{{ include.repo.description }}</p>
+    <p style="margin:.25rem 0 0 0; font-size: .9em; opacity:.8;">
+      Updated: {{ include.repo.pushed_at | date: "%Y-%m-%d" }} • Language: {{ include.repo.language }}
+    </p>
+    <div class="badges">
+      <img alt="last commit" src="https://img.shields.io/github/last-commit/{{ include.repo.full_name }}?style=flat" />
+      <img alt="issues" src="https://img.shields.io/github/issues/{{ include.repo.full_name }}?style=flat" />
+      <img alt="license" src="https://img.shields.io/github/license/{{ include.repo.full_name }}?style=flat" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+
+{%- assign pins = site.data.project_pins -%}
+{%- assign repos = site.github.public_repositories | where: 'owner.login', 'berkeleyo' -%}
+<div class="pin-grid">
+  {%- for pin in pins -%}
+    {%- assign r = repos | where:'name', pin.name | first -%}
+    {%- if r -%}
+      {% include pin-card.html item=pin repo=r %}
+    {%- endif -%}
+  {%- endfor -%}
+</div>

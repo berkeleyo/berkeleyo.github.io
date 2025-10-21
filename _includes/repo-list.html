@@ -1,0 +1,15 @@
+﻿{%- comment -%}
+  repo-list.html — shows the most recent public repos for this owner.
+  Optional params: limit (default 12)
+{%- endcomment -%}
+{%- assign owner = site.github.owner_name | default: site.github.repository_nwo | split:'/' | first -%}
+{%- assign limit = include.limit | default: 12 -%}
+{%- assign repos = site.github.public_repositories
+    | where: "owner.login", owner
+    | sort: "pushed_at" | reverse -%}
+
+<div class="pin-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;">
+  {%- for r in repos limit: limit -%}
+    {% include repo-card.html repo=r owner=owner %}
+  {%- endfor -%}
+</div>

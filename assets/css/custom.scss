@@ -20,3 +20,8 @@
 .timeline { border-left: 2px solid rgba(255,255,255,.12); margin-left: 10px; padding-left: 16px; }
 .timeline .item { margin: 0 0 14px 0; }
 .timeline .role { font-weight:700; }
+.pin-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
+@media (max-width:1024px){.pin-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:640px){.pin-grid{grid-template-columns:1fr;}}
+.card{background:#0f1115;border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.22);}
+.card .body{padding:14px 16px;}

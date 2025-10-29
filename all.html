@@ -1,0 +1,32 @@
+﻿---
+layout: default
+title: All Public Repos
+permalink: /all.html
+---
+<h1>All Public Repos</h1>
+<div class="repo-list">
+  {% assign sorted = site.github.public_repositories | sort: "pushed_at" | reverse %}
+  {% for repo in sorted %}
+  <div class="card repo-card">
+    <h2 class="repo-name"><a href="{{ repo.html_url }}">{{ repo.name }}</a></h2>
+    {% if repo.description %}<p class="repo-desc">{{ repo.description }}</p>{% endif %}
+    <p class="repo-updated">Updated: {{ repo.pushed_at | date: "%Y-%m-%d" }} • Language: {{ repo.language | default: "n/a" }}</p>
+    <div class="repo-badges">
+      <span class="badge">last commit {{ repo.pushed_at | date: "%b %d" }}</span>
+      <span class="badge">issues {{ repo.open_issues_count }} open</span>
+      <span class="badge">license {% if repo.license %}{{ repo.license.spdx_id }}{% else %}not specified{% endif %}</span>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<style>
+.repo-list{max-width:800px;margin:0 auto 4rem;}
+.repo-card{background:#1a222b;border-radius:6px;padding:1rem 1.25rem;margin:0 0 1rem;border:1px solid #2a3442;}
+.repo-name{font-size:1rem;margin:0 0 .25rem;color:#7bdfff;font-weight:600;}
+.repo-name a{color:inherit;text-decoration:none;}
+.repo-name a:hover{text-decoration:underline;}
+.repo-desc{margin:0 0 .5rem;color:#cfd8e3;font-size:.9rem;line-height:1.4;}
+.repo-updated{margin:0 0 .5rem;font-size:.75rem;color:#9da8ba;}
+.repo-badges{display:flex;flex-wrap:wrap;gap:.4rem;font-size:.7rem;}
+.badge{background:#0f1721;border:1px solid #2a3442;border-radius:4px;padding:.2rem .4rem;color:#9da8ba;line-height:1.2;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.7rem;}
+</style>
